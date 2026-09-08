@@ -22,33 +22,47 @@ class _ListScreenState extends State<ListScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('List'),
+        title: const Text('Recipes'),
       ),
-      body: Column(
-        children: [
-          SearchBarWidget(
-            onChanged: (val) => setState(() => query = val),
-          ),
-          Expanded(
-            child: GridView.builder(
-              padding: const EdgeInsets.all(8.0),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: MediaQuery.of(context).size.width > 600 ? 3 : 1,
-                childAspectRatio: 3 / 2, // Ajuste le ratio largeur/hauteur des cartes
-                crossAxisSpacing: 8,
-                mainAxisSpacing: 8,
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          final columns = constraints.maxWidth >= 900
+              ? 3
+              : constraints.maxWidth >= 600
+                  ? 2
+                  : 1;
+          return Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
+                child: SearchBarWidget(
+                  onChanged: (val) => setState(() => query = val),
+                ),
               ),
-              itemCount: filtered.length,
-              itemBuilder: (context, index) {
-                final item = filtered[index];
-                return GestureDetector(
-                  onTap: () => context.go('/detail/${item.id}'),
-                  child: CustomCard(item: item),
-                );
-              },
-            ),
-          ),
-        ],
+              Expanded(
+                child: filtered.isEmpty
+                    ? const Center(child: Text('No recipes found'))
+                    : GridView.builder(
+                        padding: const EdgeInsets.all(16),
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: columns,
+                          childAspectRatio: columns == 1 ? 3.2 : 1.45,
+                          crossAxisSpacing: 12,
+                          mainAxisSpacing: 12,
+                        ),
+                        itemCount: filtered.length,
+                        itemBuilder: (context, index) {
+                          final item = filtered[index];
+                          return GestureDetector(
+                            onTap: () => context.go('/detail/${item.id}'),
+                            child: CustomCard(item: item),
+                          );
+                        },
+                      ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }

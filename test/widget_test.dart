@@ -13,7 +13,7 @@ void main() {
   testWidgets('Home screen smoke test', (WidgetTester tester) async {
     await tester.pumpWidget(const MyApp());
 
-    expect(find.text('Home'), findsOneWidget);
-    expect(find.text('Go to List'), findsOneWidget);
+    expect(find.text('Recipe Explorer'), findsOneWidget);
+    expect(find.text('Browse recipes'), findsOneWidget);
   });
 }

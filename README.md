@@ -1,27 +1,42 @@
 # Recipe Explorer
 
-Application Flutter multi-ecrans de recettes, construite avec GoRouter.
+Application Flutter multi-écrans sur le thème des recettes, construite avec
+Flutter et GoRouter.
 
-## Fonctionnalites
+## Fonctionnalités
 
-- 5 ecrans : accueil, liste, detail, formulaire et parametres.
-- Navigation par routes nommees avec passage de l'identifiant d'une recette.
-- Recherche et filtrage dans une grille responsive : 1 colonne sur mobile, 3 sur tablette.
-- Formulaire valide avec trois champs : nom, email et mot de passe.
-- Theme clair/sombre commutable depuis l'ecran Parametres.
-- Donnees separees de l'interface dans `lib/data/items.dart`.
-- Widgets reutilisables dans `lib/widgets/` : `CustomButton`, `CustomCard` et `SearchBarWidget`.
+- 5 écrans : accueil, liste, détail, formulaire et paramètres.
+- Navigation par routes nommées avec passage de l'identifiant d'une recette.
+- Recherche et filtrage dans une grille responsive : 1 colonne sur mobile,
+	2 sur tablette et 3 sur grand écran.
+- Formulaire avec validation de trois champs : nom, email et mot de passe.
+- Thème clair/sombre commutable depuis l'écran Paramètres.
+- Données séparées de l'interface dans `lib/data/items.dart`.
+- Widgets réutilisables dans `lib/widgets/` : `CustomButton`, `CustomCard` et
+	`SearchBarWidget`.
+
+## Captures d'écran
+
+Ajouter dans `docs/screenshots/` les captures suivantes avant la remise finale :
+
+- `home.png` : écran d'accueil.
+- `recipes.png` : liste avec recherche et filtrage.
+- `settings-dark.png` : paramètres avec le thème sombre activé.
+- `form.png` : formulaire et validation.
+
+Pour les créer, lancer `flutter run -d edge`, ouvrir chaque écran dans Edge,
+puis enregistrer les images dans `docs/screenshots/` avec ces noms.
 
 ## Lancer le projet
 
-Prerequis : Flutter installe et un appareil ou navigateur disponible.
+Prérequis : Flutter installé et un appareil ou navigateur disponible.
 
 ```bash
 flutter pub get
 flutter run
 ```
 
-Pour verifier le projet :
+Pour vérifier le projet :
 
 ```bash
 flutter analyze
@@ -33,14 +48,16 @@ flutter build web
 
 ```text
 lib/
-	data/       # Donnees de recettes
-	models/     # Modeles metier
-	screens/    # Ecrans et navigation utilisateur
-	theme/      # Themes clair et sombre
-	widgets/    # Composants reutilisables
+	data/       # Données de recettes
+	models/     # Modèles métier
+	screens/    # Écrans et navigation utilisateur
+	theme/      # Thèmes clair et sombre
+	widgets/    # Composants réutilisables
+docs/
+	screenshots/ # Captures d'écran à ajouter avant la remise
 ```
 
 ## Livraison
 
-Le depot GitHub public doit contenir ce README, les captures d'ecran de l'accueil,
-de la liste et des parametres, ainsi que les instructions ci-dessus.
+Le dépôt GitHub public contient le code source, ce README, les captures
+d'écran et les instructions de lancement et de vérification.
