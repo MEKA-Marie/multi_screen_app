@@ -34,15 +34,15 @@ class HomeScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 28),
                 CustomButton(
-                  onPressed: () => context.go('/list'),
+                  onPressed: () => context.goNamed('recipes'),
                   text: 'Browse recipes',
                 ),
                 TextButton(
-                  onPressed: () => context.go('/form'),
+                  onPressed: () => context.goNamed('recipe-form'),
                   child: const Text('Share a recipe'),
                 ),
                 TextButton.icon(
-                  onPressed: () => context.go('/settings'),
+                  onPressed: () => context.goNamed('settings'),
                   icon: const Icon(Icons.settings_outlined),
                   label: const Text('Settings'),
                 ),

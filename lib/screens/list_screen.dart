@@ -54,7 +54,10 @@ class _ListScreenState extends State<ListScreen> {
                         itemBuilder: (context, index) {
                           final item = filtered[index];
                           return GestureDetector(
-                            onTap: () => context.go('/detail/${item.id}'),
+                            onTap: () => context.goNamed(
+                              'recipe-detail',
+                              pathParameters: {'id': item.id},
+                            ),
                             child: CustomCard(item: item),
                           );
                         },

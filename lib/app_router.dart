@@ -10,14 +10,17 @@ class AppRouter {
   static final GoRouter router = GoRouter(
     routes: [
       GoRoute(
+        name: 'home',
         path: '/',
         builder: (context, state) => const HomeScreen(),
       ),
       GoRoute(
+        name: 'recipes',
         path: '/list',
         builder: (context, state) => const ListScreen(),
       ),
       GoRoute(
+        name: 'recipe-detail',
         path: '/detail/:id',
         builder: (context, state) {
           // Utilisation de pathParameters au lieu de params (déprécié)
@@ -26,10 +29,12 @@ class AppRouter {
         },
       ),
       GoRoute(
+        name: 'recipe-form',
         path: '/form',
         builder: (context, state) => const FormScreen(),
       ),
       GoRoute(
+        name: 'settings',
         path: '/settings',
         builder: (context, state) => const SettingsScreen(),
       ),
